@@ -47,6 +47,7 @@ function buildToolbar() {
 
     const $toolbar = $('.esa-toolbar');
     const $skinPopup = $('.skin-popup');
+    const $profile = $('#sideBarMain');
 
     $toolbar.find('.mode').html(modeLoading == 'light' ? 'dark_mode' : 'light_mode');
 
@@ -84,6 +85,17 @@ function buildToolbar() {
         sessionStorage.setItem(modeKey, newMode);
         $(this).html(`${curMode}_mode`);
         $('html').attr('mode', newMode);
+	if (options.OnSwitchMode){
+	    options.OnSwitchMode(newMode);
+	}
+	if (options.avatar_dark){
+	    if (newMode == 'light'){
+		$profile.find('.esa-profile-avatar').attr('src', options.avatar);
+	    }else if (newMode == 'dark'){
+		$profile.find('.esa-profile-avatar').attr('src', options.avatar_dark);
+	    }
+	}
+
     });
 
     $toolbar.find('.skin').click((e) => {

@@ -30,12 +30,16 @@
     </script>
     <script>
         window.$silence = {
-            avatar: 'http://images.cnblogs.com/cnblogs_com/esofar/972540/o_avatar.jpg',
+            avatar: 'https://img2022.cnblogs.com/blog/1236187/202209/1236187-20220921213909614-2110625694.jpg',
+            avatar_dark: 'https://img2022.cnblogs.com/blog/1236187/202209/1236187-20220921175317469-216109866.jpg',
             favicon: 'https://files.cnblogs.com/files/esofar/favicon.ico',
             github:  'https://github.com/esofar',
             defaultMode: 'auto',
             defaultTheme: 'c',
             showNavAdmin: true,
+	    OnSwitchMode: function (mode){
+		console.log(mode);
+	    },
             navbars: [{
                 title: '标签',
                 url: 'https://www.cnblogs.com/esofar/tag/'
