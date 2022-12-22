@@ -15,6 +15,37 @@
 
 </div>
 
+## 针对原版的增强
+
++ 增加 `avatar_dark`配置
++ 增加 `OnSwitchMode`回调函数
+
+使用例子如下：
+
+```javascript
+    window.$silence = {
+        github: 'https://github.com/x1ntt',
+        favicon: 'https://files.cnblogs.com/files/cjdty/favicon.ico',
+        avatar: 'https://img2022.cnblogs.com/blog/1236187/202209/1236187-20220921213909614-2110625694.jpg',
+        avatar_dark: 'https://img2022.cnblogs.com/blog/1236187/202209/1236187-20220921175317469-216109866.jpg',
+        OnSwitchMode: function (mode){
+            if (mode == "light")
+                RENDERER.COLOR = 'rgb(240,240,240)';
+            else if (mode == "dark")
+                RENDERER.COLOR = 'rgb(40,40,40)';
+        },
+        // ......
+    }
+```
+
+白天模式时会设置头像为`avatar`，如果时黑夜模式则会设置为`avatar_dark`有效解决了不同模式下头像违和的问题。
+
+当切换模式时，会调用`OnSwitchMode` 以方便自定义增强
+
+
+
+*例子：[Startu - 博客园 (cnblogs.com)](https://www.cnblogs.com/cjdty)*
+
 ## 特性
 
 - 界面简洁优雅，响应式网页设计。
